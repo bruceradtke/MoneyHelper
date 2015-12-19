@@ -1,0 +1,40 @@
+label {
+    display: inline-block;
+    width: 200px;
+}
+
+.result {
+    border: solid 1px lightskyblue;
+    min-width: 184px;
+    min-height: 2em;
+    background-color: #ffE000;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+input {
+    padding: 5px;
+}
+
+input, button, select {
+    font-size: 16px;
+}
+
+label {
+    font-size: 14px;
+}
+
+button {
+    border-radius: 4px;
+}
+
+input {
+    border-radius: 4px;
+}
+
+.resultWrap {
+    margin-top: 10px;
+}
