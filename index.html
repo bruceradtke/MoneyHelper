@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Moneyhelper Demo</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 200px;
+        }
+
+        .result {
+            border: solid 1px lightskyblue;
+            min-width: 184px;
+            min-height: 2em;
+            background-color: #ffE000;
+            padding: 5px;
+            display: inline-block;
+            border-radius: 4px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        input, button, select {
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        button {
+            border-radius: 4px;
+        }
+
+        input {
+            border-radius: 4px;
+        }
+
+        .resultWrap {
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+
+<body ng-app="moneyDemo" ng-controller="demoController" ng-cloak>
+
+<div class="container">
+    <h2 class="row">Moneyhelper Demo</h2>
+
+
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <h4>Format Currency</h4>
+            <label class="text-muted" for="currency1">Amount
+            </label>
+            <input type="text" class="form-group" id="currency1" placeholder="Enter amount: 123.45"
+                   ng-model="currencyAmount">
+
+            <div>
+                <button class="button btn-primary" ng-click="formatCurrency()">Format Currency</button>
+            </div>
+            <div class="resultWrap">
+                <div class="result">{{resultCurrency}}</div>
+            </div>
+        </div>
+        <div class="col-md-4 form-group">
+            <h4>Format Number</h4>
+            <label class="text-muted" for="amount1">Number
+            </label>
+            <input type="text" class="form-group" placeholder="Enter amount: 123.45" ng-model="numberAmount">
+
+            <div>
+                <button class="button btn-primary" ng-click="formatNumber()">Format Number</button>
+            </div>
+            <div class="resultWrap">
+                <div class="result">{{resultNumber}}</div>
+            </div>
+        </div>
+
+        <div class="col-md-4 form-group">
+            <h4>Get Value From Currency</h4>
+            <label class="text-muted" for="currency1">Currency
+            </label>
+            <input type="text" class="form-group" id="amount1" placeholder="Enter amount: $1,123.45"
+                   ng-model="getValueAmount">
+
+            <div>
+                <button class="button btn-primary" ng-click="getValue()">Get Value</button>
+            </div>
+            <div class="resultWrap">
+                <div class="result">{{resultGetValue}}</div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <h4 class="row col-md-12">Settings</h4>
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="text-muted" for="selectCurrencySymbol">Currency Symbol
+                </label>
+
+                <div style="display:inline-block;">
+                    <input type="text" id="selectCurrencySymbol" class="form-group"
+                           ng-model="cultureInfo.currencySymbol">
+                </div>
+                <small class="text-muted" style="margin-left: 5px;">Note: Use Alt+0128 for Euro</small>
+            </div>
+
+            <div class="form-group">
+                <label class="text-muted" for="decimalSeparator">Decimal Separator
+                </label>
+                <input type="text" id="decimalSeparator" class="form-group" ng-model="cultureInfo.decimalSeparator">
+            </div>
+
+            <div class="form-group">
+                <label class="text-muted" for="thousandsSeparator">Thousands Separator
+                </label>
+                <input type="text" id="thousandsSeparator" class="form-group"
+                       ng-trim="false" ng-model="cultureInfo.thousandsSeparator">
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label class="text-muted" for="selectPosition">Symbol Position
+                    </label>
+                    <select style="width:180px;display:inline-block;" class="form-control" id="selectPosition"
+                            ng-options="item.value as item.text for item in selectPositionList"
+                            ng-model="cultureInfo.currencyPosition">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div><label class="text-muted" for="precision">Precision
+                </label>
+                    <select name="precision" id="precision" style="width:180px;display:inline-block;"
+                            class="form-control"
+                            ng-options="item.value as item.text for item in selectPrecisionList"
+                            ng-model="cultureInfo.precision">
+                    </select>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br/>
+
+<script src="lib/angular/angular.min.js"></script>
+<script src="scripts/moneyHelper.js"></script>
+<script src="scripts/app.js"></script>
+
+</body>
+</html>
