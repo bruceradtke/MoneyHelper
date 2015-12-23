@@ -187,16 +187,20 @@
 
 
         function formatCurrency(src, culture, precisionOverride) {
-            cultureSettings = culture;
-            var precision = angular.isDefined(culture.precision)?culture.precision:2;
+            if( angular.isDefined(culture))
+                cultureSettings = culture;
+
+            var precision = angular.isDefined(cultureSettings.precision)?cultureSettings.precision:2;
             if (arguments.length == 3)
                 precision = precisionOverride;
 
             var format = "%s%v";
-            if (culture.currencyPosition[0] == 'r')
+            if (cultureSettings.currencyPosition[0] == 'r')
                 format = "%v %s";
 
-            var tmp = formatMoney(src, culture.currencySymbol, precision, culture.thousandsSeparator, culture.decimalSeparator, format);
+            var tmp = formatMoney(src, cultureSettings.currencySymbol, precision,
+                                       cultureSettings.thousandsSeparator,
+                                       cultureSettings.decimalSeparator, format);
             return tmp;
         }
 
@@ -226,14 +230,31 @@
             return unformatCurrency(src);
         }
 
+        function applySettings(culture){
+            if( angular.isDefined(culture))
+                cultureSettings = culture;
+        }
         /***  API    ****/
         return {
             formatCurrency: formatCurrency,
             formatNumber: formatNumber,
-            getValue: getValue
+            getValue: getValue,
+            applySettings: applySettings
         }
 
     };
+
+    module.filter('moneyhelper', MoneyHelperFilter);
+
+    MoneyHelperFilter.$inject = ['moneyHelper'];
+    function MoneyHelperFilter(moneyHelper){
+        return function(input){
+            if( !input) return '';
+            var tmp = moneyHelper.formatCurrency(input);
+            return tmp;
+        }
+    }
+
 })();
 
 

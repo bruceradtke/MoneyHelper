@@ -31,6 +31,9 @@
             // Pass culture info for case of "1 234,56"
             $scope.resultGetValue = moneyHelper.getValue($scope.getValueAmount, $scope.cultureInfo);
         }
+        $scope.applySettings = function(){
+            moneyHelper.applySettings($scope.cultureInfo);
+        }
     };
 
 })();
