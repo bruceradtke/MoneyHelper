@@ -30,9 +30,8 @@ Service API:  moneyHelper
 
 
  Filter:    
- 			format number using the moneyHelper current cultureSetting.
- 				Ex:
- 					<div >{{amount | moneyhelper}}</div>
+			format number using the moneyHelper current cultureSetting.
+				Ex:		<div >{{amount | moneyhelper}}</div>
 
 
  Culture:	
