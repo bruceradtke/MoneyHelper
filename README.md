@@ -2,9 +2,9 @@
 
 To implement:
 
-- Add moneyhelper.js script tag to your site
-- Inject 'moneyHelperModule' into your ng app
-- Inject 'moneyHelper' service into your controller
+- Add **moneyhelper.js** script tag to your site
+- Inject **'moneyHelperModule'** into your ng app
+- Inject **'moneyHelper'** service into your controller
 
 ## Culture Options
 
