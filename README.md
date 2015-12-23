@@ -31,11 +31,12 @@ Service API:  moneyHelper
 
  Filter:    
  			format number using the moneyHelper current cultureSetting.
-
+ 				Ex:
+ 					<div >{{amount | moneyhelper}}</div>
 
 
  Culture:	
- 			Containis all of the options for formatting
+ 			Contains all of the options for formatting
  			Defaults to USD settings.
 
  			    cultureSettings = { currencySymbol: "$",
