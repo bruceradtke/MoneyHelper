@@ -6,7 +6,7 @@ To implement:
 - Inject 'moneyHelperModule' into your ng app
 - Inject 'moneyHelper' service into your controller
 
-##Service API 
+## Service API 
 
 
             formatCurrency(inputAmount, culture, precisionOverride)
@@ -29,13 +29,15 @@ To implement:
                 apply the default settings to use for API and filter function
 
 
- ##Filter   
+ ## Filter   
+ 
 		format number using the moneyHelper current cultureSetting.
 		<br>Ex:<br>
 			<div >{{amount | moneyhelper}}</div>
 
 
- ##Culture	
+ ## Culture	
+ 
  			Contains all of the options for formatting
  			Defaults to USD settings.
 
